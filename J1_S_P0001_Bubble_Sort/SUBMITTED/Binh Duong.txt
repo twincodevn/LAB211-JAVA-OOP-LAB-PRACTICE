@@ -1,0 +1,36 @@
+
+package Bubble_Sort;
+import java.util.Scanner;
+public class BubbleSort 
+{
+    public static Scanner scanner = new Scanner(System.in);
+    public static void main(String []args)
+    {
+        System.out.printf("So phan tu cua mang:");
+        int n = scanner.nextInt();
+        int []arr = new int [n];
+        
+        for (int i = 0; i < n; i++) 
+        {
+            System.out.printf("arr[" + i + "]" + "= ");
+            arr[i] = scanner.nextInt();
+        }
+        int temp;
+        for (int i = 0; i < n-1; i++) 
+        {
+            for(int j=0;j<n-1;j++)
+            {
+            if(arr[j]>arr[j+1]) 
+            {
+                temp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = temp;
+            }
+            }
+           
+        }   
+        for (int i = 0; i < n; i++) {
+            System.out.print(arr[i] + " ");
+        }
+    }
+}

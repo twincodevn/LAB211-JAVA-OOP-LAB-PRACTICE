@@ -1,0 +1,41 @@
+import java.util.Arrays;
+import java.util.Random;
+import java.util.Scanner;
+
+public class RandomArray {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter number of array: ");
+        int num = Integer.parseInt(sc.nextLine());
+        int[] arr = new int[num];
+        Random rand = new Random();
+        for (int i = 0; i < num; i++) {
+            arr[i] = rand.nextInt(100); 
+        }
+        System.out.print("Unsorted array: ");
+        System.out.println(Arrays.toString(arr));
+        bubbleSort(arr);
+        System.out.print("Sorted array: ");
+        System.out.println(Arrays.toString(arr));
+    }
+    static void bubbleSort(int...x)
+    {
+        int len = x.length;
+        int count = 0;
+        do
+        {
+            count = 0;
+            for (int i = 0; i < len - 1; i++)
+            {
+                if (x[i] > x[i + 1])
+                {
+                    int tmp = x[i];
+                    x[i] = x[i + 1];
+                    x[i + 1] = tmp;
+                    ++count;
+                }
+            }
+        }
+        while (count >= 1);
+    }
+}

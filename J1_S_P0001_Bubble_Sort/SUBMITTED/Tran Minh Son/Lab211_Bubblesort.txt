@@ -1,0 +1,52 @@
+public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int userInput;
+        
+        do {
+            System.out.print("Enter number of array: ");
+            userInput = sc.nextInt();
+            
+        } while (userInput <= 0);
+
+        int[] array = randomArray(userInput);
+        System.out.println("\n Unsorted array:");
+        displayArray(array);
+
+        
+        bubbleSort(array);
+        System.out.println("\nSorted:");
+        displayArray(array);
+    }
+
+    public static int[] randomArray(int size) {
+        Random random = new Random();
+        int[] array = new int[size];
+        int range = 100; 
+
+        for (int i = 0; i < size; i++) {
+            array[i] = random.nextInt(range);
+        }
+
+        return array;
+    }
+
+    
+    public static void displayArray(int[] array) {
+        for (int num : array) {
+            System.out.print(num + " ");
+        }
+    }
+
+    
+    private static void bubbleSort(int[] array) {
+        int n = array.length;
+        for (int i = 0; i < n ; i++) {
+            for (int j = 0; j < n - i -  1; j++) {
+                if (array[j] > array[j + 1]) {
+                    int temp = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
+                }
+            }
+        }
+    }
